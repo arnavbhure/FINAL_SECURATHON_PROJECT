@@ -1,0 +1,29 @@
+{
+  "name": "@envirotrust/crypto",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EnviroTrust Cryptographic Utilities (Ed25519, SHA-256, RFC 8785 JCS)",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/crypto.test.ts tests/provisioning.test.ts"
+  },
+  "dependencies": {
+    "canonicalize": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.0"
+  }
+}

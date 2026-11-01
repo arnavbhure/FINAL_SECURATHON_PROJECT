@@ -1,0 +1,161 @@
+{
+  "model_version": "iforest-demo-v1.0",
+  "algorithm": "sklearn.ensemble.IsolationForest",
+  "training_timestamp_utc": "2026-11-01T03:44:36.436653+00:00",
+  "source_dataset": "/Users/shivsarvansistla/EnviroTrust-ML-part/ml-service/data/synthetic_demo/normal_demo.csv",
+  "has_ground_truth_labels": false,
+  "label_column": null,
+  "normal_baseline_assumption": "Unlabeled dataset: training assumes predominantly normal baseline operations.",
+  "split_strategy": "chronological",
+  "train_samples": 680,
+  "train_samples_fitted": 680,
+  "validation_samples": 170,
+  "validation_samples_calibrated": 170,
+  "validation_anomalies_retained": 0,
+  "feature_schema": {
+    "numerical_features": [
+      "COD_mg_L",
+      "BOD_mg_L",
+      "pH",
+      "TDS_mg_L",
+      "turbidity_NTU",
+      "colour_PtCo",
+      "total_solids_mg_L",
+      "total_suspended_solids_mg_L",
+      "chloride_mg_L",
+      "sulphate_mg_L",
+      "COD_mg_L_roll_log_std",
+      "BOD_mg_L_roll_log_std",
+      "pH_roll_log_std",
+      "TDS_mg_L_roll_log_std",
+      "turbidity_NTU_roll_log_std",
+      "colour_PtCo_roll_log_std",
+      "total_solids_mg_L_roll_log_std",
+      "total_suspended_solids_mg_L_roll_log_std",
+      "chloride_mg_L_roll_log_std",
+      "sulphate_mg_L_roll_log_std"
+    ],
+    "categorical_features": [],
+    "feature_names_out": [
+      "num__COD_mg_L",
+      "num__BOD_mg_L",
+      "num__pH",
+      "num__TDS_mg_L",
+      "num__turbidity_NTU",
+      "num__colour_PtCo",
+      "num__total_solids_mg_L",
+      "num__total_suspended_solids_mg_L",
+      "num__chloride_mg_L",
+      "num__sulphate_mg_L",
+      "num__COD_mg_L_roll_log_std",
+      "num__BOD_mg_L_roll_log_std",
+      "num__pH_roll_log_std",
+      "num__TDS_mg_L_roll_log_std",
+      "num__turbidity_NTU_roll_log_std",
+      "num__colour_PtCo_roll_log_std",
+      "num__total_solids_mg_L_roll_log_std",
+      "num__total_suspended_solids_mg_L_roll_log_std",
+      "num__chloride_mg_L_roll_log_std",
+      "num__sulphate_mg_L_roll_log_std"
+    ],
+    "feature_count": 20
+  },
+  "features": [
+    "num__COD_mg_L",
+    "num__BOD_mg_L",
+    "num__pH",
+    "num__TDS_mg_L",
+    "num__turbidity_NTU",
+    "num__colour_PtCo",
+    "num__total_solids_mg_L",
+    "num__total_suspended_solids_mg_L",
+    "num__chloride_mg_L",
+    "num__sulphate_mg_L",
+    "num__COD_mg_L_roll_log_std",
+    "num__BOD_mg_L_roll_log_std",
+    "num__pH_roll_log_std",
+    "num__TDS_mg_L_roll_log_std",
+    "num__turbidity_NTU_roll_log_std",
+    "num__colour_PtCo_roll_log_std",
+    "num__total_solids_mg_L_roll_log_std",
+    "num__total_suspended_solids_mg_L_roll_log_std",
+    "num__chloride_mg_L_roll_log_std",
+    "num__sulphate_mg_L_roll_log_std"
+  ],
+  "calibrated_threshold": 0.0195,
+  "calibration_metadata": {
+    "strategy": "empirical_percentile",
+    "threshold_percentile": 99.0,
+    "validation_sample_count": 170,
+    "threshold": 0.0195,
+    "validation_score_mean": -0.058,
+    "validation_score_std": 0.0287,
+    "empirical_validation_cutoff_note": "Calibrated on 170 normal validation samples at 99.0th percentile. Real-world operational false-positive rate may differ due to environmental variance."
+  },
+  "validation_score_distribution": {
+    "min": -0.1209,
+    "mean": -0.058,
+    "median": -0.0607,
+    "max": 0.0419,
+    "95th_percentile": -0.0084,
+    "99th_percentile": 0.0195
+  },
+  "validation_normal_score_distribution": {
+    "min": -0.1209,
+    "mean": -0.058,
+    "median": -0.0607,
+    "max": 0.0419,
+    "95th_percentile": -0.0084,
+    "99th_percentile": 0.0195
+  },
+  "hyperparameters": {
+    "n_estimators": 150,
+    "max_samples": "auto",
+    "contamination": "auto",
+    "random_state": 42
+  },
+  "rolling_features": {
+    "enabled": true,
+    "window": 5,
+    "group_column": "sensorId",
+    "features": [
+      "COD_mg_L_roll_log_std",
+      "BOD_mg_L_roll_log_std",
+      "pH_roll_log_std",
+      "TDS_mg_L_roll_log_std",
+      "turbidity_NTU_roll_log_std",
+      "colour_PtCo_roll_log_std",
+      "total_solids_mg_L_roll_log_std",
+      "total_suspended_solids_mg_L_roll_log_std",
+      "chloride_mg_L_roll_log_std",
+      "sulphate_mg_L_roll_log_std"
+    ]
+  },
+  "holdout_test": {
+    "test_ratio": 0.15,
+    "rows": 150,
+    "note": "Never used for fitting or calibration. Reconstruct with train.split_holdout_test."
+  },
+  "consistency_rules": {
+    "enabled": true,
+    "artifact": "consistency_rules.json",
+    "feature_envelopes": 10,
+    "ratio_bands": 2
+  },
+  "cusum": {
+    "enabled": true,
+    "artifact": "cusum.json",
+    "k": 1.0,
+    "h": 4.0,
+    "features": 10
+  },
+  "validation_flag_rates": {
+    "isolation_forest": 0.0118,
+    "consistency_rules": 0.0294,
+    "cusum": 0.0,
+    "combined": 0.0353
+  },
+  "model_mode": "SYNTHETIC_DEMO",
+  "data_provenance": "SYNTHETIC",
+  "synthetic_disclaimer": "Demonstration model trained on synthetic wastewater simulation data. Does not establish real-world industrial accuracy or validate detection performance on actual factory telemetry."
+}

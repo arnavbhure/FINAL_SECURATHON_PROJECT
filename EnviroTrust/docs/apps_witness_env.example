@@ -1,0 +1,9 @@
+# Copy to apps/witness/.env. Never commit secrets.
+NODE_ENV=development
+WITNESS_PORT=4001
+WITNESS_DATABASE_URL=postgresql://envirotrust_witness:CHANGE_ME@localhost:5432/envirotrust_witness
+WITNESS_ID=WITNESS-001
+WITNESS_DISPLAY_NAME=Simulated Independent Witness
+WITNESS_CHECKPOINT_EVERY=10
+WITNESS_KEY_DIR=./local-secrets/witness-keys
+WITNESS_SERVICE_TOKEN=REPLACE_WITH_UNIQUE_RANDOM_SECRET

@@ -1,0 +1,14 @@
+# Copy to apps/sensor-simulator/.env or the simulator process environment.
+NODE_ENV=development
+DEMO_MODE=true
+SENSOR_KEY_DIR=./local-secrets/sensor-keys
+OPS_KEY_DIR=./local-secrets/ops-keys
+SIMULATOR_TELEMETRY_INTERVAL_MS=7000
+SIMULATOR_HEARTBEAT_INTERVAL_MS=10000
+SIMULATOR_RETRY_COUNT=3
+SIMULATOR_RETRY_BASE_MS=500
+PRIMARY_INGESTION_URL=http://localhost:4000/api/v1/ingestion/readings
+PRIMARY_HEARTBEAT_URL=http://localhost:4000/api/v1/ingestion/heartbeats
+PRIMARY_OPS_INGESTION_URL=http://localhost:4000/api/v1/ingestion/operations-context
+WITNESS_INGESTION_URL=http://localhost:4001/witness/v1/ingestion/readings
+WITNESS_HEARTBEAT_URL=http://localhost:4001/witness/v1/ingestion/heartbeats

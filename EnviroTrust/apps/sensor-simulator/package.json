@@ -1,0 +1,29 @@
+{
+  "name": "@envirotrust/sensor-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EnviroTrust Sensor Simulator (pH, COD, TSS)",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "preonce": "node ../../scripts/ensure-deps.mjs",
+    "once": "tsx src/cli.ts once",
+    "presend-once": "node ../../scripts/ensure-deps.mjs",
+    "send-once": "tsx src/send-cli.ts",
+    "prestream": "node ../../scripts/ensure-deps.mjs",
+    "stream": "tsx src/stream.ts",
+    "test": "tsx --test tests/**/*.test.ts"
+  },
+  "dependencies": {
+    "@envirotrust/contracts": "*",
+    "@envirotrust/crypto": "*",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.0"
+  }
+}

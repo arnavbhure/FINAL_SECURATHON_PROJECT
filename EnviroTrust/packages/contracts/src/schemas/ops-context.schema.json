@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://envirotrust.local/contracts/ops-context.schema.json",
+  "title": "EnviroTrust Signed Operations Context Payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "eventType", "messageId", "sourceId", "keyId", "siteId", "stationId", "sequence", "intervalStart", "intervalEnd", "productionRate", "wastewaterFlow", "treatmentDose", "energyConsumption", "operatingMode"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "eventType": {"const": "OPERATIONS_CONTEXT"},
+    "messageId": {"type": "string", "format": "uuid"},
+    "sourceId": {"const": "OPS-001"},
+    "keyId": {"type": "string", "minLength": 3, "maxLength": 64},
+    "siteId": {"type": "string", "minLength": 3, "maxLength": 64},
+    "stationId": {"type": "string", "minLength": 3, "maxLength": 64},
+    "sequence": {"type": "integer", "minimum": 1},
+    "intervalStart": {"type": "string", "format": "date-time"},
+    "intervalEnd": {"type": "string", "format": "date-time"},
+    "productionRate": {"type": "number", "minimum": 0},
+    "wastewaterFlow": {"type": "number", "minimum": 0},
+    "treatmentDose": {"type": "number", "minimum": 0},
+    "energyConsumption": {"type": "number", "minimum": 0},
+    "operatingMode": {"enum": ["NORMAL", "HIGH_LOAD", "CLEANING", "LOW_LOAD"]}
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://envirotrust.local/contracts/ml-request.schema.json",
+  "title": "EnviroTrust ML COD Analysis Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "readingId",
+    "siteId",
+    "stationId",
+    "sensorId",
+    "actualCod",
+    "measuredAt",
+    "contextVerified",
+    "context",
+    "recentCodReadings"
+  ],
+  "properties": {
+    "readingId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "siteId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "stationId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "sensorId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "actualCod": {
+      "type": "number",
+      "minimum": 0
+    },
+    "measuredAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "contextVerified": {
+      "const": true,
+      "description": "Set by primary API only after signature/source/time-alignment validation. Never accept this field directly from browser input."
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "productionRate",
+        "wastewaterFlow",
+        "treatmentDose",
+        "energyConsumption",
+        "operatingMode"
+      ],
+      "properties": {
+        "productionRate": {
+          "type": "number",
+          "minimum": 0
+        },
+        "wastewaterFlow": {
+          "type": "number",
+          "minimum": 0
+        },
+        "treatmentDose": {
+          "type": "number",
+          "minimum": 0
+        },
+        "energyConsumption": {
+          "type": "number",
+          "minimum": 0
+        },
+        "operatingMode": {
+          "enum": [
+            "NORMAL",
+            "HIGH_LOAD",
+            "CLEANING",
+            "LOW_LOAD"
+          ]
+        }
+      }
+    },
+    "recentCodReadings": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0
+      },
+      "maxItems": 500
+    }
+  }
+}

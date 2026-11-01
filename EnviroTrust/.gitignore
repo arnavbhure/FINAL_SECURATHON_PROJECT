@@ -1,0 +1,36 @@
+# EnviroTrust Root .gitignore
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local cryptographic keys and secrets (CRITICAL: NEVER COMMIT)
+local-secrets/
+**/*private*.pem
+**/*private-key*
+**/witness-signing*.pem
+**/*.key
+**/*.pem
+
+# Dependencies and build outputs
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.tools/
+
+# Python / ML files (Owned by ML teammate)
+services/ml/models/*.pkl
+services/ml/models/*.joblib
+__pycache__/
+.venv/
+*.pyc
+
+# Logs and runtime artifacts
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db

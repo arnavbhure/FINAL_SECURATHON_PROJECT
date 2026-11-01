@@ -1,0 +1,7 @@
+# ML teammate: copy to services/ml/.env. Do not commit secrets.
+ML_HOST=127.0.0.1
+ML_PORT=8000
+MODEL_PATH=./models/cod_model.joblib
+ML_RANDOM_SEED=42
+ML_SERVICE_TOKEN=REPLACE_WITH_SAME_INTERNAL_TOKEN_AS_PRIMARY_API
+ML_LOG_LEVEL=INFO

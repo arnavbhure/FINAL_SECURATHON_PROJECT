@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://envirotrust.local/contracts/ml-result.schema.json",
+  "title": "EnviroTrust ML COD Analysis Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["readingId", "status", "anomalyType", "modelVersion", "reasons", "evaluatedAt"],
+  "properties": {
+    "readingId": {"type": "string"},
+    "status": {"enum": ["CONSISTENT", "SUSPICIOUS", "NOT_EVALUATED", "ERROR"]},
+    "anomalyType": {"type": ["string", "null"]},
+    "actualCod": {"type": ["number", "null"]},
+    "predictedCod": {"type": ["number", "null"]},
+    "absoluteResidual": {"type": ["number", "null"], "minimum": 0},
+    "residualThreshold": {"type": ["number", "null"], "minimum": 0},
+    "modelVersion": {"type": "string"},
+    "reasons": {"type": "array", "items": {"type": "string"}},
+    "evaluatedAt": {"type": "string", "format": "date-time"}
+  }
+}

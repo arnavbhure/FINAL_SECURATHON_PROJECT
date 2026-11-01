@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Witness Checkpoint Payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "checkpointId",
+    "witnessId",
+    "witnessKeyId",
+    "siteId",
+    "stationId",
+    "checkpointSequence",
+    "lastWitnessSequence",
+    "chainHeadHash",
+    "previousCheckpointHash",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "checkpointId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "witnessId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "witnessKeyId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "siteId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "stationId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "checkpointSequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "lastWitnessSequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "chainHeadHash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "previousCheckpointHash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
+

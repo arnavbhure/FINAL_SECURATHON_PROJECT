@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://envirotrust.local/contracts/telemetry.schema.json",
+  "title": "EnviroTrust Signed Telemetry Payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "eventType", "messageId", "sensorId", "keyId", "siteId", "stationId", "parameter", "value", "unit", "measuredAt", "sequence", "bootId"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "eventType": {"const": "TELEMETRY"},
+    "messageId": {"type": "string", "format": "uuid"},
+    "sensorId": {"type": "string", "minLength": 3, "maxLength": 64},
+    "keyId": {"type": "string", "minLength": 3, "maxLength": 64},
+    "siteId": {"type": "string", "minLength": 3, "maxLength": 64},
+    "stationId": {"type": "string", "minLength": 3, "maxLength": 64},
+    "parameter": {"enum": ["pH", "COD", "TSS"]},
+    "value": {"type": "string", "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$", "maxLength": 32},
+    "unit": {"type": "string", "minLength": 1, "maxLength": 24},
+    "measuredAt": {"type": "string", "format": "date-time"},
+    "sequence": {"type": "integer", "minimum": 1},
+    "bootId": {"type": "string", "minLength": 8, "maxLength": 64},
+    "calibrationRecordId": {"type": ["string", "null"], "maxLength": 64}
+  }
+}

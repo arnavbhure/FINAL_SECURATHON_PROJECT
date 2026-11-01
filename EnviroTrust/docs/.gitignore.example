@@ -1,0 +1,18 @@
+# Copy/merge into project .gitignore
+.env
+.env.*
+!.env.example
+local-secrets/
+**/*private*.pem
+**/*private-key*
+**/witness-signing*.pem
+**/*.key
+services/ml/models/*.pkl
+services/ml/models/*.joblib
+__pycache__/
+.venv/
+node_modules/
+dist/
+build/
+coverage/
+*.log

@@ -1,0 +1,60 @@
+{
+  "name": "envirotrust",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EnviroTrust - Industrial Effluent Monitoring Verification Platform",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "workspaces": [
+    "packages/contracts",
+    "packages/crypto",
+    "apps/sensor-simulator",
+    "apps/ops-simulator",
+    "apps/api",
+    "apps/witness",
+    "apps/web"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "build:deps": "node scripts/ensure-deps.mjs --force",
+    "prepare": "node scripts/ensure-deps.mjs",
+    "test": "npm test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "contracts:sync": "node packages/contracts/scripts/sync.js",
+    "contracts:check": "node packages/contracts/scripts/check.js",
+    "db:migrate": "tsx apps/api/src/db/migrate.ts",
+    "keys:provision": "tsx scripts/provision-keys.ts",
+    "keys:register": "tsx scripts/register-keys.ts",
+    "witness:migrate": "tsx apps/witness/src/db/migrate.ts",
+    "witness:keys:provision": "tsx scripts/provision-witness-keys.ts",
+    "witness:keys:register": "tsx scripts/register-witness-keys.ts",
+    "witness:checkpoint:export": "tsx scripts/export-checkpoints.ts",
+    "witness:checkpoint:verify": "tsx scripts/verify-checkpoint.ts",
+    "users:seed": "tsx scripts/seed-users.ts",
+    "sensor:once": "npm run once --workspace=@envirotrust/sensor-simulator",
+    "sensor:send-once": "npm run send-once --workspace=@envirotrust/sensor-simulator",
+    "sensor:stream": "npm run stream --workspace=@envirotrust/sensor-simulator",
+    "ops:once": "npm run once --workspace=@envirotrust/ops-simulator",
+    "ops:send-once": "npm run send-once --workspace=@envirotrust/ops-simulator",
+    "ops:stream": "npm run stream --workspace=@envirotrust/ops-simulator",
+    "prestream:all": "node scripts/ensure-deps.mjs",
+    "stream:all": "tsx scripts/stream-all.ts",
+    "preapi:dev": "node scripts/ensure-deps.mjs",
+    "api:dev": "npm run dev --workspace=@envirotrust/api",
+    "prewitness:dev": "node scripts/ensure-deps.mjs",
+    "witness:dev": "npm run dev --workspace=@envirotrust/witness",
+    "web:dev": "npm run dev --workspace=@envirotrust/web",
+    "web:build": "npm run build --workspace=@envirotrust/web",
+    "demo:doctor": "tsx scripts/demo-doctor.ts",
+    "demo:provision": "tsx scripts/demo-provision.ts",
+    "demo:attacks": "tsx scripts/demo-attacks.ts",
+    "demo:verify": "tsx scripts/demo-verify.ts",
+    "demo:restore": "tsx scripts/demo-restore.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.0"
+  }
+}

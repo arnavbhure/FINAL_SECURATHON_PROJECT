@@ -1,0 +1,26 @@
+# Glossary
+
+- **Telemetry:** A measurement record, such as pH or COD, emitted by a simulated sensor.
+- **Ed25519:** An EdDSA public-key digital-signature algorithm.
+- **Private key:** Secret key used by a device to create signatures. It must not be disclosed.
+- **Public key:** Key used by a verifier to check a signature.
+- **Signature:** Cryptographic value computed over a canonical payload using the private key.
+- **JCS / RFC 8785:** JSON Canonicalization Scheme; gives JSON a deterministic representation before signing/hashing.
+- **SHA-256:** Cryptographic hash function that creates a 256-bit digest.
+- **Hash chain:** Ordered records where each event hash incorporates the preceding event hash.
+- **Checkpoint:** A signed statement of a witness chain head and sequence at a point in time.
+- **Witness:** Separate service that receives, verifies and retains independent copies of signed records.
+- **Heartbeat:** Signed periodic message indicating that a sensor simulator is currently communicating.
+- **Replay attack:** Resubmitting a previously valid message to make it appear new or to confuse the system.
+- **Boot ID:** Identifier for one simulator/device runtime session; sequence numbers are unique within it.
+- **Operations context:** Separate signed data about simulated production, wastewater flow, treatment and energy usage.
+- **COD:** Chemical Oxygen Demand, an effluent/water-quality parameter.
+- **TSS:** Total Suspended Solids.
+- **pH:** Measure of acidity/alkalinity.
+- **Residual:** Absolute difference between actual COD and model-predicted COD.
+- **Isolation Forest:** An unsupervised anomaly-detection algorithm; not selected for the main MVP model.
+- **RandomForestRegressor:** Ensemble regression model selected to estimate expected COD in synthetic process data.
+- **Compliance exceedance:** Reading beyond a configured parameter threshold. It is not automatically a cyberattack.
+- **Process-context mismatch:** Measurement differs materially from the model's learned synthetic relationship to operating context.
+- **Flatline:** Sequence of measurements that are nearly identical for an unusually long period.
+- **Liveness challenge:** Fresh random nonce signed by a device to prove possession of its private key at response time. It is not physical calibration.

@@ -1,0 +1,40 @@
+{
+  "name": "@envirotrust/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EnviroTrust JSON Schemas and AJV Runtime Validators",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js",
+      "default": "./dist/src/index.js"
+    },
+    "./validator": {
+      "types": "./dist/src/validator.d.ts",
+      "import": "./dist/src/validator.js"
+    },
+    "./types": {
+      "types": "./dist/src/types.d.ts",
+      "import": "./dist/src/types.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/contracts.test.ts",
+    "sync": "node scripts/sync.js",
+    "check": "node scripts/check.js"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.0"
+  }
+}

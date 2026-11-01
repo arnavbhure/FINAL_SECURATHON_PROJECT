@@ -1,0 +1,30 @@
+# Copy to apps/api/.env. Never commit secrets.
+NODE_ENV=development
+DEMO_MODE=true
+API_PORT=4000
+API_BASE_URL=http://localhost:4000
+WEB_ORIGIN=http://localhost:5173
+DATABASE_URL=postgresql://envirotrust_app:CHANGE_ME@localhost:5432/envirotrust_primary
+JWT_SECRET=REPLACE_WITH_RANDOM_48_BYTE_BASE64URL_SECRET
+JWT_ACCESS_TTL_MINUTES=15
+JWT_REFRESH_TTL_DAYS=7
+REFRESH_COOKIE_NAME=envirotrust_refresh
+COOKIE_SECURE=false
+COOKIE_SAME_SITE=lax
+MAX_FUTURE_SKEW_SECONDS=120
+MAX_TELEMETRY_AGE_SECONDS=300
+WITNESS_BASE_URL=http://localhost:4001
+WITNESS_SERVICE_TOKEN=REPLACE_WITH_UNIQUE_RANDOM_SECRET
+ML_ENABLED=false
+ML_BASE_URL=http://127.0.0.1:8000
+ML_TIMEOUT_MS=2500
+ML_SERVICE_TOKEN=REPLACE_WITH_UNIQUE_RANDOM_SECRET
+
+# Attack Simulation Lab (demo-only; see docs/ATTACK_LAB.md). Never enable in production.
+ATTACK_LAB_ENABLED=true
+ATTACK_LAB_AUTHORIZED_ADMINS=admin@envirotrust.local
+ATTACK_LAB_EXPECTED_PRIMARY_DB=envirotrust_primary
+ATTACK_LAB_EXPECTED_WITNESS_DB=envirotrust_witness
+ATTACK_LAB_ALLOW_PRIVATE_NETWORK_TARGETS=false
+# Optional: independently obtained witness public-key fingerprint (64 hex chars) for scenario G
+ATTACK_LAB_TRUSTED_WITNESS_FINGERPRINT=

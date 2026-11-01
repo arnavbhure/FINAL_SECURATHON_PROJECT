@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://envirotrust.local/contracts/tamper-event.schema.json",
+  "title": "EnviroTrust Signed Sensor Tamper Event Payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "eventId",
+    "sensorId",
+    "siteId",
+    "stationId",
+    "eventType",
+    "eventTimestamp",
+    "keyId",
+    "tamperSource",
+    "sequence"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "eventId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sensorId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "siteId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "stationId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "eventType": {
+      "enum": [
+        "ENCLOSURE_OPENED",
+        "PHYSICAL_INTERFERENCE",
+        "DEVICE_MOVEMENT"
+      ]
+    },
+    "eventTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "keyId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 64
+    },
+    "tamperSource": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 64
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "eventSequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}
+
